@@ -1,4 +1,4 @@
-# cloud-file-api
+# # cloud-file-api
 
 A small file storage API. Upload a file, get an ID back, use that ID to download or delete it later. Built with Node and Express, running out of Termux on Android.
 
@@ -37,7 +37,7 @@ Every route needs a header: `x-api-key: <your key>`
 ```mermaid
 flowchart LR
     A[Client] -->|POST /upload + API key| B[Express Server]
-    B -->|saves file| C[(uploads/ folder)]
+    B -->|saves file| C[(uploads folder)]
     B -->|saves info| D[(metadata.json)]
     A -->|GET /files| B
     A -->|GET /files/:id| B
@@ -48,6 +48,7 @@ flowchart LR
     style B fill:#50B87A,stroke:#2D7A4B,color:#fff
     style C fill:#E8A33D,stroke:#B8792A,color:#fff
     style D fill:#E8A33D,stroke:#B8792A,color:#fff
+```
 
 ## Example
 
@@ -68,4 +69,3 @@ Files are stored on disk in `uploads/`, and a `metadata.json` file keeps track o
 ---
 
 Built with help from Claude (Anthropic).
-
