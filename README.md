@@ -32,6 +32,23 @@ Every route needs a header: `x-api-key: <your key>`
 | GET | /files/:id | Download one file. |
 | DELETE | /files/:id | Delete one file. |
 
+## How it works
+
+```mermaid
+flowchart LR
+    A[Client] -->|POST /upload + API key| B[Express Server]
+    B -->|saves file| C[(uploads/ folder)]
+    B -->|saves info| D[(metadata.json)]
+    A -->|GET /files| B
+    A -->|GET /files/:id| B
+    A -->|DELETE /files/:id| B
+    B -->|sends file back| A
+
+    style A fill:#4A90D9,stroke:#2C5F8A,color:#fff
+    style B fill:#50B87A,stroke:#2D7A4B,color:#fff
+    style C fill:#E8A33D,stroke:#B8792A,color:#fff
+    style D fill:#E8A33D,stroke:#B8792A,color:#fff
+
 ## Example
 
 ```
